@@ -1,22 +1,25 @@
-# NSBE-ATA
-NSBE Attendance Tracking Application (ATA)
+# NSBE Attendance Tracking Application (ATA)
 
+## Project Overview
 
-Project Overview 
-The Attendance Tracking Application is designed to streamline the process of marking attendance for events organized by an organization like NSBE. The application uses QR codes for attendance marking, with real-time authentication and GPS location verification to ensure the integrity of the attendance records. Additionally, the application will prompt members to answer a set of questions every time they scan the QR code.
+The NSBE Attendance Tracking Application (ATA) is designed to simplify the process of recording attendance at events organized by organizations like NSBE. This application utilizes QR codes for attendance tracking, along with real-time authentication and GPS location verification to ensure accurate attendance records. Additionally, members will be prompted to answer a set of questions each time they scan the QR code.
 
-	Repo  - https://github.com/ojakanbi/NSBE-ATA
+### Repository
 
+Visit the [NSBE-ATA GitHub Repository](https://github.com/ojakanbi/NSBE-ATA) for detailed code and documentation.
 
-Req
-User Auth, Event Creation, QR code Generation for Events, QR Code Scanning for Attendance, Real-time Communication, GPS location Verification, User Roles (Admin and Member), Secure Data Handling, Question Prompt on QR Code Scan.
+## Requirements
 
-Tech Stack 
-Frontend: Next.js ( HTM, CSS, JS) 
-Backend: Flask (python)
-Database: MongoDB ( pyMongo ) 
-Authentication: JWT (pyjwt)
-QR Code Generation: (qrcode) lib
-QR Code Scanning: react-qr-reader library
-Real-time Features: Flask-SocketIO
-GPS Location: HTML5 Geolocation API
+- **User Authentication:** Secure user authentication using JWT.
+- **Event Creation:** Ability to create events with relevant details.
+- **QR Code Generation:** Automatically generate QR codes for events.
+- **QR Code Scanning:** Utilize QR code scanning to mark attendance.
+- **Real-time Communication:** Incorporate real-time features for instant updates.
+- **GPS Location Verification:** Validate attendance through GPS location.
+- **User Roles:** Admin and member roles for managing events and attendance.
+- **Secure Data Handling:** Ensure secure handling and storage of sensitive data.
+- **Question Prompt:** Prompt members to answer specific questions during QR code scanning.
+
+## Tech Stack
+
+- **Frontend:** Next.js for dynamic frontend development (HTML, CSS, JavaScript).
