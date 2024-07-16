@@ -1,0 +1,14 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+
+# Pipenv
+.venv/
+Pipfile.lock
+
+# macOS
+.DS_Store
+
+# Environment variables
+.env
