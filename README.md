@@ -24,26 +24,75 @@ Visit the [NSBE-ATA GitHub Repository](https://github.com/ojakanbi/NSBE-ATA) for
 
 - **Frontend:** Next.js for dynamic frontend development (HTML, CSS, JavaScript).
 
-## Getting Started 
-Create Python env and activate 
-- python -m venv venv
-- source venv/bin/activate 
+## Getting Started
 
-Install all dependencies via requirements.txt
-- pip install -r requirements.txt
+### Create Python Environment and Activate
 
-Set Up .env file via .envexample
+```bash
+# Create Virtual Environment
+python -m venv venv
 
-Install Database Mongo db | Read doc(Ben) or if mac user  
-- brew tap mongodb/brew
-- brew install mongodb-community@5.0
-- brew services start mongodb/brew/mongodb-community@5.0 
-- brew services list
-- Download MongoCompass https://www.mongodb.com/try/download/compass
-- Db name = "nsbe-ata" collection name = 'nsbe'
-- import the "db-test.json" file into MongoCompass for db test
+# Activate Virtual Environment (macOS/Linux)
+source venv/bin/activate
+```
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+
+## Set Up .env File
+
+1. **Create a .env file**: Place this file in the root directory of your project.
+
+2. **Copy .envexample content**: Copy the content from `.envexample` into `.env`.
+
+   Example `.envexample` content:
+
+3. **Modify variables**: Adjust the values in `.env` as needed for your environment and application configuration.
+
+Ensure that the `.env` file is included in your project's version control `.gitignore` to keep sensitive information secure.
+
+
+
+## Install MongoDB
+
+### For macOS Users
+
+```bash
+# Tap MongoDB Brew Formula
+brew tap mongodb/brew
+
+# Install MongoDB Community Edition
+brew install mongodb-community@5.0
+
+# Start MongoDB Service
+brew services start mongodb/brew/mongodb-community@5.0
+
+# Verify MongoDB Service Status
+brew services list
+```
+### For Other Operating Systems
+
+Follow MongoDB installation instructions suitable for your OS.
+
+## Setting Up MongoDB Compass
+
+1. **Download MongoDB Compass** from [MongoDB Download Center](https://www.mongodb.com/try/download/compass).
+
+2. **Launch MongoDB Compass** and connect to your MongoDB instance.
+
+3. **Create a New Database** named `nsbe-ata`.
+
+4. **Create a Collection** named `nsbe`.
+
+5. **Import Sample Data** from `db-test.json` into the `nsbe` collection for testing.
+
 
 
 Run backend
-- python app.py
+```
+  python app.py
+```
 
