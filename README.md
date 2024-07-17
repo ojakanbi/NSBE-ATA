@@ -24,5 +24,26 @@ Visit the [NSBE-ATA GitHub Repository](https://github.com/ojakanbi/NSBE-ATA) for
 
 - **Frontend:** Next.js for dynamic frontend development (HTML, CSS, JavaScript).
 
+## Getting Started 
+Create Python env and activate 
+- python -m venv venv
+- source venv/bin/activate 
 
-Test 
+Install all dependencies via requirements.txt
+- pip install -r requirements.txt
+
+Set Up .env file via .envexample
+
+Install Database Mongo db | Read doc(Ben) or if mac user  
+- brew tap mongodb/brew
+- brew install mongodb-community@5.0
+- brew services start mongodb/brew/mongodb-community@5.0 
+- brew services list
+- Download MongoCompass https://www.mongodb.com/try/download/compass
+- Db name = "nsbe-ata" collection name = 'nsbe'
+- import the "db-test.json" file into MongoCompass for db test
+
+
+Run backend
+- python app.py
+

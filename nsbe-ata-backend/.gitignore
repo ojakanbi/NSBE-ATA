@@ -1,17 +1,14 @@
-# Ignore Python virtual environment
-venv/
-
-# Ignore IDE or editor specific files
-.vscode/
-.idea/
-
-# Ignore compiled Python files
+# Python
 *.pyc
 __pycache__/
+venv/
 
-# Ignore environment-specific files
-.env
+# Pipenv
+.venv/
+Pipfile.lock
 
-# Ignore system and temporary files
-Thumbs.db
+# macOS
 .DS_Store
+
+# Environment variables
+.env

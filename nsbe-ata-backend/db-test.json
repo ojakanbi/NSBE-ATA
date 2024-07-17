@@ -1,0 +1,27 @@
+[
+    {
+        "name": "OJ Akanbi",
+        "email": "OJ@example.com",
+        "age": 28,
+        "location": "New York"
+    },
+    {
+        "name": "Ben",
+        "email": "Ben@example.com",
+        "age": 25,
+        "location": "Los Angeles"
+    },
+    {
+        "name": "goody",
+        "email": "michael.johnson@example.com",
+        "age": 32,
+        "location": "Chicago"
+    },
+    {
+        "name": "kayla",
+        "email": "emily.davis@example.com",
+        "age": 30,
+        "location": "San Francisco"
+    }
+]
+
