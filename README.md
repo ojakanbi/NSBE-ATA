@@ -26,6 +26,8 @@ Visit the [NSBE-ATA GitHub Repository](https://github.com/ojakanbi/NSBE-ATA) for
 
 ## Getting Started
 
+# cretae new branch and clone it 
+
 ### Create Python Environment and Activate
 
 ```bash
