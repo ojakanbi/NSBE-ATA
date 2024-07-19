@@ -36,5 +36,5 @@ https://code.visualstudio.com/
 ``` git checkout -b BRANCH_NAME ```
 
 ## Push your branch up 
-```git push --set-upstream origin test_branch```
+```git push --set-upstream origin BRANCH_NAME```
 
