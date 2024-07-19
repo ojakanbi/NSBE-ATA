@@ -1,27 +1,9 @@
-[
-    {
-        "name": "OJ Akanbi",
-        "email": "OJ@example.com",
-        "age": 28,
-        "location": "New York"
-    },
-    {
-        "name": "Ben",
-        "email": "Ben@example.com",
-        "age": 25,
-        "location": "Los Angeles"
-    },
-    {
-        "name": "goody",
-        "email": "michael.johnson@example.com",
-        "age": 32,
-        "location": "Chicago"
-    },
-    {
-        "name": "kayla",
-        "email": "emily.davis@example.com",
-        "age": 30,
-        "location": "San Francisco"
-    }
-]
-
+{
+"nsbe_id": 1234,
+"first_name": "test",
+"last_name": "tes",
+"email": "test@psu.edu",
+"password": "thisisypass1",
+"role": "Admin", 
+"year": "4"
+}
