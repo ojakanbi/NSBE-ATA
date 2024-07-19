@@ -91,6 +91,10 @@ Follow MongoDB installation instructions suitable for your OS.
 
 5. **Import Sample Data** from `db-test.json` into the `nsbe` collection for testing.
 
+## Setting up Insominia (To test API endpoint)
+1. **Download it** https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.app&source=website
+2. **Add it to you apps & Click on it**
+3. **Watch this video**  https://psu.mediaspace.kaltura.com/media/Settiing+up+Insominia/1_x7tozrn9
 
 
 Run backend
