@@ -35,3 +35,6 @@ https://code.visualstudio.com/
 ## Open the "NSBE-ATA" in VSCODE and create a new branch 
 ``` git checkout -b BRANCH_NAME ```
 
+## Push your branch up 
+```git push --set-upstream origin test_branch```
+
