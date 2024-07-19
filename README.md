@@ -26,6 +26,7 @@ Visit the [NSBE-ATA GitHub Repository](https://github.com/ojakanbi/NSBE-ATA) for
 
 # Getting Started
 
+### VIDEO = https://psu.mediaspace.kaltura.com/media/OJ+Akanbi%27s+Zoom+Meeting/1_w5gqa31m?st=0
 ## Download VSCODE 
 https://code.visualstudio.com/
 
