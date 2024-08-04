@@ -18,6 +18,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Load environment variables from .env file
 load_dotenv()
 
+
 app = Flask(__name__)
 if app:
     logging.info("\n🚀N\n🚀S\n🚀B\n🚀E\nBackend Server is UP and RUNNING")
@@ -119,4 +120,10 @@ def db_test():
 
 
 if __name__ == '__main__':
+    try:
+        logging.info("Connecting to MongoDB...")
+        mongo.db.command("ping")  # Ping MongoDB to check connection
+        logging.info("MongoDB connection successful")
+    except Exception as e:
+        logging.error(f"MongoDB connection error: {str(e)}")
     socketio.run(app, host='0.0.0.0', port=3000) # Run the server 
