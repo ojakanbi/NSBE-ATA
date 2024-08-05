@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 
+
 from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_socketio import SocketIO, emit
@@ -21,7 +22,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app, resources={r"/*": {"origins": "*"}}) # for dev purposes, will need to have strict orgin 
+
 if app:
     logging.info("\n🚀N\n🚀S\n🚀B\n🚀E\nBackend Server is UP and RUNNING")
 
