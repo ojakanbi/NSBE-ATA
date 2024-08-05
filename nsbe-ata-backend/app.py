@@ -1,8 +1,4 @@
-import os
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify
-
-
 from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_socketio import SocketIO, emit
@@ -14,6 +10,8 @@ from bson.objectid import ObjectId
 from geopy.distance import geodesic
 import logging
 from email_validator import validate_email, EmailNotValidError
+import os
+from dotenv import load_dotenv
 
 # Custom logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -22,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}}) # for dev purposes, will need to have strict orgin 
+CORS(app, resources={r"/*": {"origins": r"https?://nsbe-ata-frontend\..*\.vercel\.app"}})
 
 if app:
     logging.info("\n🚀N\n🚀S\n🚀B\n🚀E\nBackend Server is UP and RUNNING")
@@ -102,18 +100,6 @@ def register():
     except Exception as e:
         logging.error(f"Error registering user: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
-
-
-
-
-
-
-
-
-
-
-
-
 
 # TEST YOUR DB | Will delete this soon 
 @app.route('/data')
