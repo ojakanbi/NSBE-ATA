@@ -1,7 +1,4 @@
-import os
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify
-
 from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_socketio import SocketIO, emit
@@ -13,6 +10,8 @@ from bson.objectid import ObjectId
 from geopy.distance import geodesic
 import logging
 from email_validator import validate_email, EmailNotValidError
+import os
+from dotenv import load_dotenv
 
 # Custom logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -21,7 +20,16 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app) 
+
+# Specify allowed origins
+allowed_origins = [
+    "https://nsbe-ata-frontend-h0clvgjdg-ojakanbis-projects.vercel.app",
+    "https://nsbe-ata-frontend.vercel.app"
+]
+
+# Configure CORS to allow specified origins
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
+
 if app:
     logging.info("\n🚀N\n🚀S\n🚀B\n🚀E\nBackend Server is UP and RUNNING")
 
@@ -30,7 +38,7 @@ app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 
 mongo = PyMongo(app)
 jwt = JWTManager(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins=allowed_origins)
 app.config["DEBUG"] = os.getenv("DEBUG")
 
 @app.route('/', methods=['GET'])
@@ -51,13 +59,13 @@ def register():
             return jsonify({"error": f"Missing required field: {field}"}), 400
 
     try:
-            valid = validate_email(data["email"])
-            email = valid.email
-            if not email.endswith("psu.edu"):
-                raise EmailNotValidError
+        valid = validate_email(data["email"])
+        email = valid.email
+        if not email.endswith("psu.edu"):
+            raise EmailNotValidError
     except EmailNotValidError:
-            logging.warning(f"Invalid email domain attempt: {data['email']}")
-            return jsonify({"error": "Invalid email domain, must be a 'psu.edu' email"}), 400
+        logging.warning(f"Invalid email domain attempt: {data['email']}")
+        return jsonify({"error": "Invalid email domain, must be a 'psu.edu' email"}), 400
 
     # Validate password complexity
     password = data["password"]
@@ -101,18 +109,6 @@ def register():
         logging.error(f"Error registering user: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
-
-
-
-
-
-
-
-
-
-
-
-
 # TEST YOUR DB | Will delete this soon 
 @app.route('/data')
 def db_test():
@@ -133,4 +129,4 @@ if __name__ == '__main__':
         logging.info("MongoDB connection successful")
     except Exception as e:
         logging.error(f"MongoDB connection error: {str(e)}")
-    socketio.run(app, host='0.0.0.0', port=3001) # Run the server 
+    socketio.run(app, host='0.0.0.0', port=3001)  # Run the server 
