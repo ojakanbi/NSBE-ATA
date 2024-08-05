@@ -1,9 +1,11 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
+
 from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_socketio import SocketIO, emit
+from flask_cors import CORS
 import bcrypt
 import qrcode
 import datetime
@@ -19,10 +21,13 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app) 
 if app:
     logging.info("\n🚀N\n🚀S\n🚀B\n🚀E\nBackend Server is UP and RUNNING")
 
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+
 mongo = PyMongo(app)
 jwt = JWTManager(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
@@ -36,6 +41,8 @@ def app_check():
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
+
+    logging.info("DATA: ", data)
     
     # Ensure required fields are provided
     required_fields = ["nsbe_id", "first_name", "last_name", "email", "password", "role"]
@@ -86,9 +93,10 @@ def register():
 
         # Insert the user into the 'users' collection
         mongo.db.users.insert_one(user)
+        access_token = create_access_token(identity={"email": data["email"], "role": data["role"]})
 
         logging.info(f"{data['first_name']} registered successfully")
-        return jsonify({"message": "User registered successfully 🙂"}), 201
+        return jsonify({"message": "User registered successfully", "access_token": access_token}), 201
     except Exception as e:
         logging.error(f"Error registering user: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
@@ -119,4 +127,10 @@ def db_test():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=3000) # Run the server 
+    try:
+        logging.info("Connecting to MongoDB...")
+        mongo.db.command("ping")  # Ping MongoDB to check connection
+        logging.info("MongoDB connection successful")
+    except Exception as e:
+        logging.error(f"MongoDB connection error: {str(e)}")
+    socketio.run(app, host='0.0.0.0', port=3001) # Run the server 
