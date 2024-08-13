@@ -24,7 +24,8 @@ app = Flask(__name__)
 # Specify allowed origins
 allowed_origins = [
     "https://nsbe-ata-frontend-h0clvgjdg-ojakanbis-projects.vercel.app",
-    "https://nsbe-ata-frontend.vercel.app"
+    "https://nsbe-ata-frontend.vercel.app",
+    "http://localhost:3000"
 ]
 
 # Configure CORS to allow specified origins

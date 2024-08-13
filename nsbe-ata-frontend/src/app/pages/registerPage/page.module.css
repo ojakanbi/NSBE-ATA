@@ -1,20 +1,18 @@
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.container>h2{
-    color: white;
-}
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #003366, #001a33);
+    color: #ffffff;
+  }
   
+
 .form{
     width: 100%;
     max-width: 600px;
     padding: 32px;
-    background-color: #000;
+    /* background-color: #000; */
     border: 1px solid gold;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,7 +41,8 @@
 .input, .select {
     width: 100%;
     padding: 8px;
-    color: auto;
+    background-color: #fff;
+    color: #000;
     border: 1px solid gold;
     border-radius: 8px;
     outline: none;
