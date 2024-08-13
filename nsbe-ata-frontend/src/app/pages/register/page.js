@@ -50,7 +50,7 @@ export default function Register() {
             <h2>NSBE ATA</h2>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>Register</h2>
-                {message && <p>{message}</p>} {/* Display message to user */}
+                {message && <p className={styles.errorMessage} >{message}</p>} {/* Display message to user */}
                 <div className={styles.formGroup}>
                     <label className={styles.label} htmlFor="nsbe_id">NSBE ID</label>
                     <input 
