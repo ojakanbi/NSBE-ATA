@@ -38,7 +38,7 @@ export default function Register() {
             setMessage(result.message || 'Registration successful!');
             if (result.access_token) {
                 localStorage.setItem('access_token', result.access_token);
-                router.push('/pages/home'); // Navigate to the home page
+                router.push('/pages/homePage'); // Navigate to the home page
             }
         } catch (error) {
             setMessage(error.response?.data?.error || 'Registration failed.');
@@ -47,10 +47,9 @@ export default function Register() {
 
     return (
         <div className={styles.container}>
-            <h2>NSBE ATA</h2>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>Register</h2>
-                {message && <p>{message}</p>} {/* Display message to user */}
+                {message && <p className={styles.errorMessage} >{message}</p>} {/* Display message to user */}
                 <div className={styles.formGroup}>
                     <label className={styles.label} htmlFor="nsbe_id">NSBE ID</label>
                     <input 

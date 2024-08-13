@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #000, #003366);
+    color: #ffffff;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .slogan {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .loginButton, .registerButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .loginButton {
+    background-color: #FFD700;
+    color: #000;
+  }
+  
+  .loginButton:hover {
+    background-color: #FFC300;
+  }
+  
+  .registerButton {
+    background-color: #003366;
+    color: #ffffff;
+    border: 2px solid #FFD700;
+  }
+  
+  .registerButton:hover {
+    background-color: #002244;
+  }
+  
+  .leadershipSection {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 50px 0;
+    background-color: #001a33;
+  }
+  
+  .leader {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .leaderPhoto {
+    margin-bottom: 20px;
+  }
+  
+  .photo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #FFD700;
+  }
+  
+  .leaderTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .leaderName {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #000;
+  }
+  
+  .footerText {
+    font-size: 1.2rem;
+    color: #FFD700;
+  }
+  
