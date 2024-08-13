@@ -5,6 +5,10 @@
     flex-direction: column;
     height: 100vh;
 }
+
+.container>h2{
+    color: white;
+}
   
 .form{
     width: 100%;
@@ -15,6 +19,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
   
 .title{
     margin-bottom: 24px;
@@ -38,7 +43,7 @@
 .input, .select {
     width: 100%;
     padding: 8px;
-    color: #ffffff;
+    color: black;
     border: 1px solid gold;
     border-radius: 8px;
     outline: none;
@@ -48,7 +53,7 @@
 .button {
     width: 100%;
     padding: 12px;
-    color: #fff;
+    color: black;
     background-color: gold;
     border: none;
     border-radius: 8px;
