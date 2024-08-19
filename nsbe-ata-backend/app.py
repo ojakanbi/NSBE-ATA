@@ -110,6 +110,36 @@ def register():
         logging.error(f"Error registering user: {str(e)}")
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+
+    # Ensure required fields are provided
+    required_fields = ["email", "password"]
+    for field in required_fields:
+        if field not in data:
+            return jsonify({"error": f"Missing required field: {field}"}), 400
+
+    try:
+        # Fetch the user from the database using the provided email
+        user = mongo.db.users.find_one({"email": data["email"]})
+        if not user:
+            return jsonify({"error": "Invalid email or password"}), 401
+
+        # Check if the provided password matches the hashed password in the database
+        if not bcrypt.checkpw(data['password'].encode('utf-8'), user['password']):
+            return jsonify({"error": "Invalid email or password"}), 401
+
+        # Create an access token
+        access_token = create_access_token(identity={"email": user["email"], "role": user["role"]})
+
+        logging.info(f"{user['first_name']} logged in successfully")
+        return jsonify({"message": "Login successful", "access_token": access_token}), 200
+    except Exception as e:
+        logging.error(f"Error logging in user: {str(e)}")
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+    
+
 # TEST YOUR DB | Will delete this soon 
 @app.route('/data')
 def db_test():
