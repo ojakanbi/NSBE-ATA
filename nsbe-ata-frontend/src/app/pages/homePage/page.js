@@ -1,22 +1,46 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import styles from "./page.module.css"
+import UserDetails from '@/app/components/userDetails';
+import { jwtDecode } from 'jwt-decode';
+
 
 export default function Home() {
+    const [userDetails, setUserDetails] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('access_token');
+        if (token) {
+            const decoded = jwtDecode(token);
+            
+            setUserDetails({
+                name: decoded.sub.firstName,
+                role: decoded.role,
+            });
+        }
+    }, []);
+
     return (
         <div className={styles.container}>
             {/* Header Section */}
             <header className={styles.header}>
                 <h1 className={styles.title}>Penn State Chapter of NSBE</h1>
                 <p className={styles.slogan}>NSBE Attendance Tracking Application</p>
-                <div className={styles.buttonGroup}>
-                    <Link href="/pages/loginPage" className={styles.loginButton}>
-                        Login
-                    </Link>
-                    <Link href="/pages/registerPage" className={styles.registerButton}>
-                      Register
-                    </Link>
-                </div>
+
+                {/* Conditionally render based on authentication status */}
+                {userDetails ? (
+                    <UserDetails name={userDetails.name} role={userDetails.role} />
+                ) : (
+                    <div className={styles.buttonGroup}>
+                        <Link href="/pages/loginPage" className={styles.loginButton}>
+                            Login
+                        </Link>
+                        <Link href="/pages/registerPage" className={styles.registerButton}>
+                            Register
+                        </Link>
+                    </div>
+                )}
             </header>
 
             {/* President and VP Section */}
@@ -47,5 +71,4 @@ export default function Home() {
             </footer>
         </div>
     );
-};
-
+}

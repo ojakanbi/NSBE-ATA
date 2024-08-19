@@ -131,7 +131,7 @@ def login():
             return jsonify({"error": "Invalid email or password"}), 401
 
         # Create an access token
-        access_token = create_access_token(identity={"email": user["email"], "role": user["role"]})
+        access_token = create_access_token(identity={"email": user["email"], "role": user["role"], "firstName": user["first_name"]})
 
         logging.info(f"{user['first_name']} logged in successfully")
         return jsonify({"message": "Login successful", "access_token": access_token}), 200
